@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+public class program_test {
+
+    public static void main(String[] args)
+    {
+
+        punkt_m pkt1 = new punkt_m();
+        System.out.println("Opis punktu nr 1: ");
+        pkt1.opis();
+        System.out.println("Masa punktu nr 1: " +pkt1.getmasa());
+        System.out.println("Glowny moment bezwladnosci: "+pkt1.moment_B());
+        System.out.println("Moment bezwladnosci z tw. Steinera: "+pkt1.momment_B_ST(3));
+        /* nowy obiekt klasy punkt_m z konstruktorem domyslnym */
+
+        punkt_m pkt2 = new punkt_m(15);
+        System.out.println("Opis punktu 2: ");
+        pkt2.opis();
+        System.out.println("Masa punktu nr 2: "+pkt2.getmasa());
+        System.out.println("Glowny moment bezwladnosci: "+pkt2.moment_B());
+        System.out.println("Moment bezwladnosci z tw. Steinera: "+pkt2.momment_B_ST(4));
+        /*obiekt klasy z konstruktorem z parametrami*/
+
+        pkt1.masa2(10);
+        System.out.println("Opis punktu nr 1 ze zmieniona masa: ");
+        pkt1.opis();
+        System.out.println("Masa punktu nr 1 ze zmieniona masa: "+pkt1.getmasa());
+        System.out.println("Glowny moment bezwladnoscize zmieniona masa:  "+pkt1.moment_B());
+        System.out.println("Moment bezwladnosci z tw. Steinera ze zmieniona masa: "+pkt1.momment_B_ST(3));
+        /* zmiana masy punkt nr 1 */
+
+
+        ArrayList<punkt> tablica_punkt = new ArrayList<punkt>();
+        ArrayList<Integer> tablica_masy = new ArrayList<Integer>();
+        /* stworzone tablice obiektów */
+        int l_punkt=5;
+        tablica_masy.add(10);
+        tablica_masy.add(15);
+        tablica_masy.add(20);
+        tablica_masy.add(25);
+        tablica_masy.add(30);
+        /* uruchomenie tablic przy użyciu pętli*/
+        for(int i=0;i<l_punkt;i++)
+        {
+            punkt_m punkt = new punkt_m(tablica_masy.get(i));
+            tablica_punkt.add(punkt);
+        }
+
+        for(int i=0;i<l_punkt;i++)
+        {
+            punkt_m punkt = tablica_punkt.get(i);
+            System.out.println("Opis: ");
+            pkt1.opis();
+            System.out.println("Masa: "+punkt.getmasa());
+            System.out.println("Glowny moment bezwaldnosci:  "+punkt.moment_B());
+            System.out.println("Moment bezwaldnosci z tw. Steinera: "+punkt.momment_B_ST(5));
+        }
+    }
+}
